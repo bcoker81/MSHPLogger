@@ -10,16 +10,20 @@ namespace MSHPLogger.Tests
     [TestFixture]
     public class MSHPLoggerRepositoryIntegrationTests
     {
+        private LoggerContext db;
+        private LogRepository testObj;
         [SetUp]
         public void Setup()
         {
-
+            testObj = new LogRepository();
+            db = new LoggerContext();
         }
 
         [TearDown]
         public void TearDown()
         {
-
+            db.LogEntries.RemoveRange(db.LogEntries);
+            db.SaveChanges();
         }
 
 
@@ -27,8 +31,6 @@ namespace MSHPLogger.Tests
         public void TestMethod1()
         {
             //arrange
-            var testObj = new LogRepository();
-
             LogEntry log = new LogEntry
             {
                 AppCode = "CJ97",
@@ -42,11 +44,8 @@ namespace MSHPLogger.Tests
             //act
             testObj.LogError(log);
             LogEntry expected = new LogEntry();
-            using (var db = new LoggerContext())
-            {
-                expected = db.LogEntries.First(p => p.AppCode == "CJ97");
-            }
-
+           
+            expected = db.LogEntries.First(p => p.AppCode == "CJ97");
 
             //assert
             Assert.AreEqual(expected.AppCode, log.AppCode);
