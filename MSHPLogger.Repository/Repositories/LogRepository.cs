@@ -24,7 +24,23 @@ namespace MSHPLogger.Repository.Repositories
 
         public bool LogError(LogEntry log)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            try
+            {
+                if (log != null)
+                {
+                    _db.LogEntries.Add(log);
+                    _db.SaveChanges();
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                throw;
+            }
+            return result;
         }
     }
 }
