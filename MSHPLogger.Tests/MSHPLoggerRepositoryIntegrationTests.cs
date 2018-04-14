@@ -27,6 +27,7 @@ namespace MSHPLogger.Tests
             //act
 
             //assert
+            Assert.AreEqual();
         }
     }
 }
