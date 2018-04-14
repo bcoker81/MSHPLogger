@@ -26,9 +26,8 @@ namespace MSHPLogger.Tests
             db.SaveChanges();
         }
 
-
         [Test]
-        public void TestMethod1()
+        public void LogRepository_LogErrorPersistsToDatabase()
         {
             //arrange
             LogEntry log = new LogEntry
@@ -49,6 +48,17 @@ namespace MSHPLogger.Tests
 
             //assert
             Assert.AreEqual(expected.AppCode, log.AppCode);
+        }
+
+        [Test]
+        public void LogRepository_GetListByApplicationCodeReturnsCorrectApplications()
+        {
+            //arrange
+
+            //act
+
+            //assert
+
         }
     }
 }

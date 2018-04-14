@@ -253,6 +253,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSHPLogger.Entities\MSHPLogger.Entities.csproj">
+      <Project>{a962dc8a-11a4-4d4e-a9a4-a06c8509c184}</Project>
+      <Name>MSHPLogger.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSHPLogger.Repository\MSHPLogger.Repository.csproj">
+      <Project>{06284048-ce61-4b8e-9b51-2ca60d6d4248}</Project>
+      <Name>MSHPLogger.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
