@@ -22,6 +22,7 @@ namespace MSHPLogger.Repository.Repositories
             _db = new LoggerContext();
         }
 
+        // This is the main method that we use to write the data to the database.
         public bool LogError(LogEntry log)
         {
             bool result = false;
